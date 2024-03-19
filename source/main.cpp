@@ -18,11 +18,11 @@ r01lib_start;	/* *** place this word before making instance of r01lib classes **
 #ifdef		USE_I2C
 I2C			i2c;
 PCF2131_I2C	rtc( i2c );
-char		*intf_str	= "I2C";
+const char	*intf_str	= "I2C";
 #else
 SPI			spi;
 PCF2131_SPI	rtc( spi );
-char		*intf_str	= "SPI";
+const char	*intf_str	= "SPI";
 #endif
 
 void	set_time( void );
