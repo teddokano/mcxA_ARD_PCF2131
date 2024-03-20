@@ -29,7 +29,7 @@ void	set_time( void );
 
 int main(void)
 {
-	PRINTF( "\r***** Hello, PCF2131! (%s interface) *****\r\n", intf_str );
+	PRINTF( "***** Hello, PCF2131! (%s interface) *****\r\n", intf_str );
 
 	if ( rtc.oscillator_stop() )
 	{
@@ -41,12 +41,13 @@ int main(void)
 		PRINTF( "---- RTC has beeing kept running! :) ----\r\n" );
 	}
 
+	time_t	current_time;
+
 	while ( true )
 	{
-		time_t current_time = 0;
-
 		current_time	= rtc.time( NULL );
-		PRINTF( "time : %lu, %s", (unsigned long)current_time, ctime(&current_time) );
+
+		PRINTF( "time : %lu, %s", (unsigned long)current_time, ctime( &current_time ) );
 		wait( 1 );
 	}
 }
