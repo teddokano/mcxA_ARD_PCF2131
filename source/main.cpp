@@ -16,11 +16,11 @@ r01lib_start;	/* *** place this word before making instance of r01lib classes **
 
 #define		USE_I2C
 #ifdef		USE_I2C
-I2C			i2c;
+I2C			i2c( I2C_SDA, I2C_SCL );	//	SDA, SCL
 PCF2131_I2C	rtc( i2c );
 const char	*intf_str	= "I2C";
 #else
-SPI			spi;
+SPI			spi( D11, D12, D13, D10 );	//	MOSI, MISO, SCLK, CSPCF2131_SPI	rtc( spi );
 PCF2131_SPI	rtc( spi );
 const char	*intf_str	= "SPI";
 #endif
