@@ -6,13 +6,10 @@
  */
 
 #include	"r01lib.h"
-r01lib_start;	/* *** place this word before making instance of r01lib classes *** */
-
-#include	<time.h>
-#include	"rtc/tzcode/strptime.h"
-
 #include	"rtc/PCF2131_I2C.h"
 #include	"rtc/PCF2131_SPI.h"
+#include	"rtc/tzcode/strptime.h"
+#include	<time.h>
 
 #define		USE_I2C
 #ifdef		USE_I2C
